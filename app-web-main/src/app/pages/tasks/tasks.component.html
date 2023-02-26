@@ -1,0 +1,32 @@
+<div class="bg-light bg-gradient">
+    <div class="container min-vh-100 pt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="card-tile">My To-Do List</div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let task of tasks">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-10">
+                            <input type="checkbox" class="form-check-input me-2" (change)="toggleTask(task)" [checked]="task.done">
+                            <label [class.done]="task.done">{{task.title}}</label>
+                        </div>
+                        <div class="col-12 col-md-2 text-end">
+                            <div class="remove-button" (click)="deleteTask(task.id)">(remove task)</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-10">
+                        <input type="text" class="form-control" placeholder="Add a new task" [(ngModel)]="newTask">
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <button class="btn btn-primary w-100" (click)="save()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
